@@ -39,24 +39,24 @@ Material:
   m_Name: LaserLineFanMat
   m_Shader: {fileID: -6465566751694194690, guid: 3c9c76df4344d47f4af537be30c19e66, type: 3}
   m_ValidKeywords:
+  - _DISABLE_DECALS
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
-  - _ENABLE_FOG_ON_TRANSPARENT
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 3002
+  m_CustomRenderQueue: 2752
   stringTagMap:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - TransparentDepthPrepass
+  - MOTIONVECTORS
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - MOTIONVECTORS
+  - TransparentDepthPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -159,8 +159,8 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 1
-    - _EnableBlendModePreserveSpecularLighting: 1
-    - _EnableFogOnTransparent: 1
+    - _EnableBlendModePreserveSpecularLighting: 0
+    - _EnableFogOnTransparent: 0
     - _EnvironmentReflections: 1
     - _Flickering: 0.847
     - _FogBlendFactor: 0.001
@@ -193,7 +193,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RenderQueueType: 4
+    - _RenderQueueType: 3
     - _RequireSplitLighting: 0
     - _Rotation: 0.18
     - _Seed: 0
@@ -217,7 +217,7 @@ Material:
     - _StrobePWM: 0.5
     - _StrobeSpeed: 0
     - _StrobeTimeOffset: 0
-    - _SupportDecals: 1
+    - _SupportDecals: 0
     - _Surface: 0
     - _SurfaceType: 1
     - _TransparentBackfaceEnable: 0
