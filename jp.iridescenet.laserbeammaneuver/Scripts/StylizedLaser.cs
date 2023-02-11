@@ -109,6 +109,22 @@ public class StylizedLaser : LaserElement
             }
         }
     }
+    
+    public override void SetRapidFirePros(LaserRapidFireProp laserRapidFireProp)
+    {
+        this.laserRapidFireProp = laserRapidFireProp;
+        
+        if (synchronizedStylizedLasers != null)
+        {
+            foreach (StylizedLaser ptl in synchronizedStylizedLasers)
+            {
+                
+                if(ptl != null)ptl.SetRapidFirePros(laserRapidFireProp);
+            }
+        }
+    }
+   
+    
         // Update is called once per frame
     void Update()
     {
@@ -121,6 +137,7 @@ public class StylizedLaser : LaserElement
         laser.SetBasicProps(laserBasicProps);
 
         laser.laserTransform = laserTransform;
+        // laser.SetLaserTransform(laserTransform);
 
         switch (laserType)
         {
@@ -132,7 +149,11 @@ public class StylizedLaser : LaserElement
            case LaserType.Fan:
                laser.SetFanProps(laserFanProps);
                break;
-           
+           case LaserType.LineFan:
+               laser.SetLineArrayProps(laserLineArrayProps);
+               laser.SetFanProps(laserFanProps);
+               laser.SetRapidFirePros(laserRapidFireProp);
+               break;
           default:  
               break;
         }
@@ -152,7 +173,12 @@ public class StylizedLaser : LaserElement
                 case LaserType.Fan:
                     synchronizedStylizedLaser.SetFanProps(laserFanProps);
                     break;  
-                    
+                case LaserType.LineFan:
+                    synchronizedStylizedLaser.SetLineArrayProps(laserLineArrayProps);
+                    synchronizedStylizedLaser.SetFanProps(laserFanProps);
+                    laser.SetRapidFirePros(laserRapidFireProp);
+                    // synchronizedStylizedLaser.set
+                    break;
                 default:
                     break;
             }

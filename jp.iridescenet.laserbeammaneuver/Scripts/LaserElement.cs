@@ -5,16 +5,17 @@ using UnityEditor;
 using UnityEngine;
 
 
+[Serializable]
 public class LaserElement: MonoBehaviour
 {
 
-    [SerializeField]internal LaserType _laserType;
-    [SerializeField]internal LaserBasicProps laserBasicProps;
-    [SerializeField]internal LaserLineArrayProps laserLineArrayProps;
-    [SerializeField]internal LaserFanProps laserFanProps;    
+    [SerializeField] internal LaserType _laserType;
+    [SerializeField] internal LaserBasicProps laserBasicProps;
+    [SerializeField] internal LaserLineArrayProps laserLineArrayProps;
+    [SerializeField] internal LaserFanProps laserFanProps;    
+    [SerializeField] internal LaserRapidFireProp laserRapidFireProp;
     [SerializeField] internal LaserTransform laserTransform = new LaserTransform();
-
-
+    
     public LaserType laserType { get { return _laserType; } set { _laserType = value; } }
 
     public void InitProps()
@@ -35,6 +36,11 @@ public class LaserElement: MonoBehaviour
     public virtual void SetFanProps(LaserFanProps laserFanProps)
     {
         this.laserFanProps = laserFanProps;
+    }
+
+    public virtual void SetRapidFirePros(LaserRapidFireProp laserRapidFireProp)
+    {
+        this.laserRapidFireProp = laserRapidFireProp;
     }
     
     public virtual void InitType(LaserType laserType)
@@ -64,6 +70,9 @@ public class LaserElement: MonoBehaviour
         Material material = null;
         switch (this.laserType)
         {
+            case LaserType.LineFan:
+                material = (Material)AssetDatabase.LoadAssetAtPath($"Packages/{StylizedLaserConstans.PACAGE_NAME}/Resources/LaserMaterials/LaserLineFanMat.mat", typeof(Material));
+                break;
             case LaserType.Line:
                 material = (Material)AssetDatabase.LoadAssetAtPath($"Packages/{StylizedLaserConstans.PACAGE_NAME}/Resources/LaserMaterials/LaserLineMat.mat", typeof(Material));
                 // InitLine();
@@ -128,7 +137,7 @@ public class LaserElement: MonoBehaviour
             materialPropertyBlock.SetFloat("_ArrayRandomness", laserLineArrayProps.arrayRandomness);  
         }
 
-        if (laserType == LaserType.Fan)
+        if (laserType == LaserType.Fan || laserType == LaserType.LineFan)
         {
             // set fan props   
             materialPropertyBlock.SetColor("_SmokeColor", laserFanProps.fogColor);
@@ -136,6 +145,20 @@ public class LaserElement: MonoBehaviour
             materialPropertyBlock.SetFloat("_CenterBloomSize", laserFanProps.centerBloomSize);
             materialPropertyBlock.SetVector("_FogNoiseScale", laserFanProps.fogNoiseScale);
             materialPropertyBlock.SetVector("_FogNoiseSpeed", laserFanProps.fogNoiseSpeed);
+
+        }
+        
+        if(laserType == LaserType.LineFan)
+        {
+            materialPropertyBlock.SetFloat("_RapidFire", laserRapidFireProp.rapidFire);
+            materialPropertyBlock.SetFloat("_RapidFireCount", laserRapidFireProp.rapidFireCount);
+            materialPropertyBlock.SetFloat("_RapidFireSpeed", laserRapidFireProp.rapidFireSpeed);
+            materialPropertyBlock.SetFloat("_RapidFireTimeOffset", laserRapidFireProp.rapidFireTimeOffset);
+            materialPropertyBlock.SetFloat("_RapidFireAttack", laserRapidFireProp.rapidFireAttack);
+            materialPropertyBlock.SetFloat("_RapidFireHold", laserRapidFireProp.rapidFireHold);
+            materialPropertyBlock.SetFloat("_RapidFireRelease", laserRapidFireProp.rapidFireRelease);
+            materialPropertyBlock.SetFloat("_RapidFireRandomness", laserRapidFireProp.rapidFireRandomness);
+            
 
         }
 

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class StylizedLaserConstans
 {
-    public static readonly string PACAGE_NAME = "com.amagi.unity_laser_shader";
+    public static readonly string PACAGE_NAME = "jp.iridescent.laser_beam_maneuver";
 }

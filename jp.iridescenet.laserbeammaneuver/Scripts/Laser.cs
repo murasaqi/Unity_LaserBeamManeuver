@@ -6,6 +6,7 @@ using UnityEngine;
 
 public enum LaserType
 {
+    LineFan,
     Line,
     LineArray,
     Fan,
@@ -22,8 +23,13 @@ public class Laser :LaserElement
     
     public MaterialPropertyBlock materialPropertyBlock => _materialPropertyBlock;
     public MeshRenderer meshRenderer => _meshRenderer;
-    
-    [ContextMenu("Init")]
+
+    [ContextMenu("Force Init")]
+
+    private void ForceInit()
+    {
+        Init(laserType);
+    }
     public override void Init(LaserType laserType)
     {
         

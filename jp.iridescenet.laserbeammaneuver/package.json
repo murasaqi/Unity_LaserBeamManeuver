@@ -1,9 +1,9 @@
 {
-  "name": "jp.iridescent.laser_beam_manuever",
-  "displayName": "Lazer Beam Manuever",
+  "name": "jp.iridescent.laser_beam_maneuver",
+  "displayName": "Lazer Beam Maneuver",
   "version": "0.1.0",
   "unity": "2021.2",
-  "description": "Unity lazer animation system",
+  "description": "Unity laser animation system",
   "keywords": [
     "Script",
     "editorextensions"
