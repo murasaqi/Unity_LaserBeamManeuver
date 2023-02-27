@@ -14,6 +14,7 @@ Material:
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
   - _SURFACE_TYPE_TRANSPARENT
+  - _TRANSPARENT_WRITES_MOTION_VEC
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -27,7 +28,6 @@ Material:
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - TransparentDepthPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -184,10 +184,10 @@ Material:
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
-    - _TransparentDepthPrepassEnable: 0
+    - _TransparentDepthPrepassEnable: 1
     - _TransparentSortPriority: 0
-    - _TransparentWritingMotionVec: 0
-    - _TransparentZWrite: 1
+    - _TransparentWritingMotionVec: 1
+    - _TransparentZWrite: 0
     - _UseManualTime: 1
     - _UseShadowThreshold: 0
     - _Width: 0.162
@@ -197,7 +197,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 8
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 8
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _AngleMaskStartEnd: {r: -67, g: 273, b: 0, a: 0}
