@@ -28,6 +28,7 @@ Material:
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
+  - TransparentDepthPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -184,7 +185,7 @@ Material:
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
-    - _TransparentDepthPrepassEnable: 1
+    - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 1
     - _TransparentZWrite: 0
@@ -194,9 +195,9 @@ Material:
     - _WorkflowMode: 1
     - _XBlur: 0.51
     - _ZTest: 4
-    - _ZTestDepthEqualForOpaque: 8
+    - _ZTestDepthEqualForOpaque: 0
     - _ZTestGBuffer: 4
-    - _ZTestTransparent: 8
+    - _ZTestTransparent: 0
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
