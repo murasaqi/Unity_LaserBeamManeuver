@@ -194,9 +194,9 @@ Material:
     - _WorkflowMode: 1
     - _XBlur: 0.51
     - _ZTest: 4
-    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestDepthEqualForOpaque: 8
     - _ZTestGBuffer: 4
-    - _ZTestTransparent: 4
+    - _ZTestTransparent: 8
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
